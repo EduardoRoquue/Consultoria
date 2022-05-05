@@ -1,6 +1,6 @@
 ﻿namespace Consultoria
 {
-    partial class Form11
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.

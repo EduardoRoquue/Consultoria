@@ -1,6 +1,6 @@
 ﻿namespace Consultoria
 {
-    partial class Form1
+    partial class Trabajadores
     {
         /// <summary>
         /// Variable del diseñador necesaria.

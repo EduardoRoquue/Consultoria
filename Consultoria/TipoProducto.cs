@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Consultoria
 {
-    public partial class Form7 : Form
+    public partial class TipoProducto : Form
     {
-        public Form7()
+        public TipoProducto()
         {
             InitializeComponent();
         }

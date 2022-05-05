@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Consultoria
 {
-    public partial class Form11 : Form
+    public partial class Menu : Form
     {
-        public Form11()
+        public Menu()
         {
             InitializeComponent();
         }

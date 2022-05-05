@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace Consultoria
 {
-    public partial class Form6 : Form
+    public partial class Pagos : Form
     {
-        public Form6()
+        public Pagos()
         {
             InitializeComponent();
         }
 
-        private void Form6_Load(object sender, EventArgs e)
+        private void Form4_Load(object sender, EventArgs e)
         {
             Conexion.Conectar();
             MessageBox.Show("conexion exitosa");
@@ -22,7 +22,7 @@ namespace Consultoria
         {
             Conexion.Conectar();
             DataTable dt = new DataTable();
-            string consulta = "SELECT * FROM NOMBRE_PROYECTOS";
+            string consulta = "SELECT * FROM PAGOS_TRABAJADORES";
 
             SqlCommand sqlCommand = new SqlCommand(consulta, Conexion.Conectar());
             SqlCommand cmd = sqlCommand;
@@ -34,13 +34,13 @@ namespace Consultoria
         private void button1_Click(object sender, EventArgs e)
         {
             Conexion.Conectar();
-            string insertar = "INSERT INTO NOMBRE_PROYECTOS (ID_NOMBRE_PROYECTO, NOMBRE_PROYECTO, TIPO_PROYECTO)VALUES(@ID_NOMBRE_PROYECTO, @NOMBRE_PROYECTO, @TIPO_PROYECTO)";
+            string insertar = "INSERT INTO PAGOS_TRABAJADORES (ID_PAGO_TRABAJADOR, TRABAJADOR, TIPO_PAGO, CUENTA)VALUES(@ID_PAGO_TRABAJADOR, @TRABAJADOR, @TIPO_PAGO, @CUENTA)";
             SqlCommand cmd1 = new SqlCommand(insertar, Conexion.Conectar());
-            cmd1.Parameters.AddWithValue("@ID_NOMBRE_PROYECTO", txtID_NOMBRE_PROYECTO.Text);
-            cmd1.Parameters.AddWithValue("@NOMBRE_PROYECTO", txtNOMBRE_PROYECTO.Text);
-            cmd1.Parameters.AddWithValue("@TIPO_PROYECTO", txtTIPO_PROYECTO.Text);
-
-
+            cmd1.Parameters.AddWithValue("@ID_PAGO_TRABAJADOR", txtID_PAGO_TRABAJADOR.Text);
+            cmd1.Parameters.AddWithValue("@TRABAJADOR", txtTRABAJADOR.Text);
+            cmd1.Parameters.AddWithValue("@TIPO_PAGO", txtTIPO_PAGO.Text);
+            cmd1.Parameters.AddWithValue("@CUENTA", txtCUENTA.Text);
+           
 
             cmd1.ExecuteNonQuery();
             MessageBox.Show("Los datos fueron agregados con exito");
@@ -53,11 +53,11 @@ namespace Consultoria
             try
             {
 
-                txtID_NOMBRE_PROYECTO.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                txtNOMBRE_PROYECTO.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                txtTIPO_PROYECTO.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-
-
+                txtID_PAGO_TRABAJADOR.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                txtTRABAJADOR.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                txtTIPO_PAGO.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                txtCUENTA.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                
 
             }
             catch
@@ -68,13 +68,13 @@ namespace Consultoria
         private void button2_Click(object sender, EventArgs e)
         {
             Conexion.Conectar();
-            string actualizar = "UPDATE NOMBRE_PROYECTOS SET ID_NOMBRE_PROYECTO=@ID_NOMBRE_PROYECTO, NOMBRE_PROYECTO=@NOMBRE_PROYECTO, TIPO_PROYECTO=@TIPO_PROYECTO WHERE ID_NOMBRE_PROYECTO=@ID_NOMBRE_PROYECTO";
+            string actualizar = "UPDATE PAGOS_TRABAJADORES SET ID_PAGO_TRABAJADOR=@ID_PAGO_TRABAJADOR, TRABAJADOR=@TRABAJADOR, TIPO_PAGO=@TIPO_PAGO, CUENTA=@CUENTA WHERE ID_PAGO_TRABAJADOR=@ID_PAGO_TRABAJADOR";
             SqlCommand cmd2 = new SqlCommand(actualizar, Conexion.Conectar());
 
-            cmd2.Parameters.AddWithValue("@ID_NOMBRE_PROYECTO", txtID_NOMBRE_PROYECTO.Text);
-            cmd2.Parameters.AddWithValue("@NOMBRE_PROYECTO", txtNOMBRE_PROYECTO.Text);
-            cmd2.Parameters.AddWithValue("@TIPO_PROYECTO", txtTIPO_PROYECTO.Text);
-
+            cmd2.Parameters.AddWithValue("@ID_PAGO_TRABAJADOR", txtID_PAGO_TRABAJADOR.Text);
+            cmd2.Parameters.AddWithValue("@TRABAJADOR", txtTRABAJADOR.Text);
+            cmd2.Parameters.AddWithValue("@TIPO_PAGO", txtTIPO_PAGO.Text);
+            cmd2.Parameters.AddWithValue("@CUENTA", txtCUENTA.Text);
 
             cmd2.ExecuteNonQuery();
             MessageBox.Show("Los datos fueron actualizados con exito");
@@ -85,9 +85,9 @@ namespace Consultoria
         private void button3_Click(object sender, EventArgs e)
         {
             Conexion.Conectar();
-            string eliminar = "DELETE FROM NOMBRE_PROYECTOS WHERE ID_NOMBRE_PROYECTO=@ID_NOMBRE_PROYECTO";
+            string eliminar = "DELETE FROM PAGOS_TRABAJADORES WHERE ID_PAGO_TRABAJADOR=@ID_PAOG_TRABAJADOR";
             SqlCommand cmd3 = new SqlCommand(eliminar, Conexion.Conectar());
-            cmd3.Parameters.AddWithValue("@ID_NOMBRE_PROYECTO", txtID_NOMBRE_PROYECTO.Text);
+            cmd3.Parameters.AddWithValue("@ID_PAGO_TRABAJADOR", txtID_PAGO_TRABAJADOR.Text);
 
             cmd3.ExecuteNonQuery();
             MessageBox.Show("Los datos fueron eliminados con exito");
@@ -97,9 +97,10 @@ namespace Consultoria
 
         private void button4_Click(object sender, EventArgs e)
         {
-            txtID_NOMBRE_PROYECTO.Clear();
-            txtNOMBRE_PROYECTO.Clear();
-            txtTIPO_PROYECTO.Clear();
+            txtID_PAGO_TRABAJADOR.Clear();
+            txtTRABAJADOR.Clear();
+            txtTIPO_PAGO.Clear();
+            txtCUENTA.Clear();
         }
     }
 }
