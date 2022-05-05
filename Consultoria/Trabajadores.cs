@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Consultoria
 {
-    public partial class Form1 : Form
+    public partial class Trabajadores : Form
     {
-        public Form1()
+        public Trabajadores()
         {
             InitializeComponent();
         }

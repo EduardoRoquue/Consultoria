@@ -1,6 +1,6 @@
 ﻿namespace Consultoria
 {
-    partial class Form9
+    partial class Almacen
     {
         /// <summary>
         /// Required designer variable.

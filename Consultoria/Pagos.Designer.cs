@@ -1,6 +1,6 @@
 ﻿namespace Consultoria
 {
-    partial class Form4
+    partial class Pagos
     {
         /// <summary>
         /// Required designer variable.

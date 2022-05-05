@@ -1,6 +1,6 @@
 ﻿namespace Consultoria
 {
-    partial class Form3
+    partial class Horarios
     {
         /// <summary>
         /// Required designer variable.
